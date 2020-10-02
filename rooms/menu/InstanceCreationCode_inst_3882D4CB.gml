@@ -1,0 +1,1 @@
+font = fnt_title; isWaving = true; text = "Try Not to Die";

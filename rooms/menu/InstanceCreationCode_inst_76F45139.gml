@@ -1,0 +1,1 @@
+group = state.options; text = "Back"; sprite_index = bRed;

@@ -1,0 +1,1 @@
+group = state.select; lvl = 12; sprite_index = bYellow;

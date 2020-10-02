@@ -1,0 +1,1 @@
+group = state.options; showFs = true; sprite_index = bGreen;

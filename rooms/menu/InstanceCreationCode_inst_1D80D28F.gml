@@ -1,0 +1,1 @@
+group = state.options; showShift = true; sprite_index = bGreen;
