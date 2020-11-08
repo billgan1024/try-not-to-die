@@ -11,6 +11,7 @@
     {"id":{"name":"sSpikeUp","path":"sprites/sSpikeUp/sSpikeUp.yy",},"order":8,},
     {"id":{"name":"sSpikeDown","path":"sprites/sSpikeDown/sSpikeDown.yy",},"order":9,},
     {"id":{"name":"sSpikeLeft","path":"sprites/sSpikeLeft/sSpikeLeft.yy",},"order":10,},
+    {"id":{"name":"level5","path":"rooms/level5/level5.yy",},"order":8,},
     {"id":{"name":"sSpikeRight","path":"sprites/sSpikeRight/sSpikeRight.yy",},"order":11,},
     {"id":{"name":"sCheckpoint","path":"sprites/sCheckpoint/sCheckpoint.yy",},"order":12,},
     {"id":{"name":"sEndpoint","path":"sprites/sEndpoint/sEndpoint.yy",},"order":13,},
@@ -163,6 +164,7 @@
     {"name":"level4","path":"rooms/level4/level4.yy",},
     {"name":"complete","path":"rooms/complete/complete.yy",},
     {"name":"template","path":"rooms/template/template.yy",},
+    {"name":"level5","path":"rooms/level5/level5.yy",},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
