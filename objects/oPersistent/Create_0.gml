@@ -40,7 +40,7 @@ global.loaded = false;
 part_system_depth(global.ps_above, -9999);
 part_system_depth(global.ps_below, 550);
 global.deaths = 0; prev = -1;
-global.debug = true;
+global.debug = false;
 version = "v0.2";
 
 button1 = noone; 

@@ -1,1 +1,0 @@
-pst(d2, 14, pr, true);

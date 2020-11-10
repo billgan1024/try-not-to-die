@@ -1,0 +1,1 @@
+pst(d6, 6, pc, true);
