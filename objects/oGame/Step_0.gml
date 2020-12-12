@@ -24,11 +24,14 @@ if(lx != xx || ly != yy)
 {
 	instance_deactivate_layer("Enemies");
 	instance_deactivate_layer("Ground");
+	instance_deactivate_layer("Cannons");
 	instance_activate_region(xx, yy, 2560, 1440, true);
+	with(oBullet) instance_destroy();
 	with(oSpike) path_position = 0;
 	with(oSpikeBig) { path_position = 0; }
 	with(oHmovingPlatform) { x = xstart; y = ystart; platDir = platDirStart; }
 	with(oVmovingPlatform) { x = xstart; y = ystart; platDir = platDirStart; }
+	with(oBulletCannon) { alarm[0] = 30; }
 	with(oUnstablePlatform)
 	{ 
 		unstable = false; image_xscale = 1; image_alpha = 1; 

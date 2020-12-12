@@ -28,11 +28,11 @@ else
 	ds_map_secure_save(levelData, "level.sav");
 }
 
-window_set_size(display_get_height()/3*4, display_get_height()/4*3);
 //update values
 update();
+window_set_size(display_get_height()/3*4, display_get_height()/4*3);
+alarm[1] = 1;
 
-alarm[0] = 1;
 global.ps_above = part_system_create();
 global.ps_below = part_system_create();
 //whether this player is playing on the save file or not
