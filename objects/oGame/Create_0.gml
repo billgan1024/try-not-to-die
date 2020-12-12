@@ -1,6 +1,6 @@
 xx = 0; yy = 0; checkpoint = -1; c = false; cnt = 0; tot = instance_number(oCoin);
 //music(mus_game);
-lx = -1; ly = -1; roomName = string(room-1);
+lx = -1; ly = -1; roomName = string_digits(room_get_name(room));
 
 //player death explosion
 max_life = 20;

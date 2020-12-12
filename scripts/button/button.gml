@@ -13,7 +13,7 @@ function button() {
 				ds_map_add(oPersistent.levelData, "lvl", 1);
 				ds_map_add(oPersistent.levelData, "deaths", 0);
 				save_level();
-				room_goto(2); 
+				room_goto(asset_get_index("level1")); 
 				audio_stop_sound(mus_menu); music(mus_game);
 			}
 			else
@@ -32,7 +32,7 @@ function button() {
 					ds_map_add(oPersistent.levelData, "lvl", 1);
 					ds_map_add(oPersistent.levelData, "deaths", 0);
 					save_level();
-					room_goto(2); 
+					room_goto(asset_get_index("level1")); 
 					audio_stop_sound(mus_menu); music(mus_game);
 				}
 			}
@@ -41,7 +41,7 @@ function button() {
 			case "Load Game": global.gs = state.game;
 			global.loaded = true; 
 			global.deaths = ds_map_find_value(oPersistent.levelData, "deaths");
-			room_goto(ds_map_find_value(oPersistent.levelData, "lvl")+1);
+			room_goto(asset_get_index("level"+string(ds_map_find_value(oPersistent.levelData, "lvl"))));
 			audio_stop_sound(mus_menu); music(mus_game);
 			break;
 		
@@ -60,7 +60,7 @@ function button() {
 		if(lvl != 0) 
 		{
 			global.gs = state.game; 
-			room_goto(lvl+1); 
+			room_goto(asset_get_index("level"+string(lvl))); 
 			global.deaths = 0;
 			global.loaded = false;
 			audio_stop_sound(mus_menu); music(mus_game);
@@ -109,10 +109,13 @@ function button() {
 				room_restart();
 				break;
 			
-				case "Next Level": room_goto(oPersistent.prev+1);
+				case "Next Level": 
+				{
+					room_goto(asset_get_index("level"+string(oPersistent.prev+1)));
+				}
 				break;
 			
-				case "Retry Level": room_goto(oPersistent.prev);
+				case "Retry Level": room_goto(asset_get_index("level"+string(oPersistent.prev)));
 				break;
 			
 				case "Main Menu": with(oPersistent) { global.paused = false; unpause(); } 
