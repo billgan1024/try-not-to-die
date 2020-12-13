@@ -26,6 +26,8 @@ key_down = false;
 key_up = false;
 key_shift = global.isShifting;
 
+yscale = 1;
+
 if(global.loaded)
 {
 	var xx = ds_map_find_value(oPersistent.levelData, "x");

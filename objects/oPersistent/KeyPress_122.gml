@@ -1,4 +1,4 @@
-if(alarm[0] == -1 && alarm[1] == -1)
+if(alarm[0] == -1)
 {
 	window_set_fullscreen(!window_get_fullscreen());
 	//alarm[0] = 30;

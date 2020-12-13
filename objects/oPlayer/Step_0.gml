@@ -1,4 +1,5 @@
 image_alpha = approach(image_alpha, 1, 0.1);
+yscale = approach(yscale, 1, 0.05);
 if(canMove) input();
 
 move = key_right-key_left;
@@ -30,8 +31,8 @@ else
 
 if(!onGround)
 {
-	if(key_down && vsp >= -jumpSpeed) vsp = min(vsp+2*grav, maxGrav+3);
-	else vsp = min(vsp+grav, maxGrav);
+	if(key_down && vsp >= -jumpSpeed) { vsp = min(vsp+2*grav, maxGrav+3); }
+	else vsp = min(vsp+grav, maxGrav); 
 }
 
 if(vsp < 0 && !key_up && !boosted) vsp += grav;
@@ -41,6 +42,7 @@ if(jumpBuffer > 0)
 	jumpBuffer--;
 	if(key_jump && vsp > -jumpSpeed)
 	{
+		yscale = 0.6;
 		sound(snd_jump);
 		boosted = false;
 		jumpBuffer = 0;
@@ -52,6 +54,7 @@ else if(extraJump)
 {
 	if(key_jump && vsp >= -jumpSpeed)
 	{
+		yscale = 0.6;
 		sound(snd_jump);
 		boosted = false;
 		if(!place_meeting(x, y+10, oGround)) extraJump = false;
@@ -121,6 +124,7 @@ if(onGround) { extraJump = true; bonusJump = 0; boosted = false; jumpBuffer = 5;
 var g = instance_place(x, y+1, oGround);
 if(g != noone && g.object_index == oSpring)
 {
+	yscale = 0.6;
 	sound(snd_bounce); vsp = -g.bounce; boosted = true;
 	g.image_index = 1; g.alarm[0] = 15;
 }

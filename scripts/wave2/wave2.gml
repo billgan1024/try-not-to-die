@@ -12,6 +12,4 @@ function wave2(argument0, argument1, argument2, argument3, argument4) {
  
 	arg4 = (argument1 - argument0) * 0.5;
 	return argument0 + arg4 + sin(((argument4 + argument2 * argument3) / argument2) * (pi*2)) * arg4;
-
-
 }
