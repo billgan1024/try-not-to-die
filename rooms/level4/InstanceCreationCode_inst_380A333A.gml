@@ -1,1 +1,1 @@
-pst(d15, 10, pc, true);
+pst(d15, 8, pc, true);

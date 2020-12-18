@@ -31,8 +31,9 @@ else
 //update values
 update();
 window_set_size(display_get_height()/3*4, display_get_height()/4*3);
-//alarm[1] = 1;
+alarm[1] = 1;
 
+global.maxlevel = 5;
 global.ps_above = part_system_create();
 global.ps_below = part_system_create();
 //whether this player is playing on the save file or not
@@ -59,4 +60,4 @@ enum state
 global.gs = state.menu;
 global.time = 0;
 global.paused = false;
-room_goto_next();
+room_goto(menu);

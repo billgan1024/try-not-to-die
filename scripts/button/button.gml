@@ -20,7 +20,7 @@ function button() {
 			{
 				if(!instance_exists(warning))
 				{
-					warning = instance_create_layer(1280, 1280, "Menu", oDisplay);
+					warning = instance_create_layer(vx+1280, vy+1280, "Menu", oDisplay);
 					warning.text = "Warning: Your previous save will be overwritten. Click again to proceed."; 
 					warning.alarm[0] = 240;
 				}
@@ -59,11 +59,23 @@ function button() {
 		case state.select:
 		if(lvl != 0) 
 		{
-			global.gs = state.game; 
-			room_goto(asset_get_index("level"+string(lvl))); 
-			global.deaths = 0;
-			global.loaded = false;
-			audio_stop_sound(mus_menu); music(mus_game);
+			if(lvl <= global.maxlevel)
+			{
+				global.gs = state.game; 
+				room_goto(asset_get_index("level"+string(lvl))); 
+				global.deaths = 0;
+				global.loaded = false;
+				audio_stop_sound(mus_menu); music(mus_game);
+			}
+			else
+			{
+				if(!instance_exists(warning))
+				{
+					warning = instance_create_layer(vx+1280, vy+1360, "Menu", oDisplay);
+					warning.text = "More levels coming soon!"; 
+					warning.alarm[0] = 120;
+				}	
+			}
 		}
 		else
 		{
@@ -90,6 +102,8 @@ function button() {
 				if(alarm[0] == -1)
 				{
 					window_set_fullscreen(!window_get_fullscreen());
+					window_set_size(display_get_height()/3*4, display_get_height()/4*3);
+					alarm[1] = 5;
 					ds_map_replace(saveData, "fs", window_get_fullscreen());
 					ds_map_secure_save(saveData, fileName);
 				}
@@ -119,7 +133,19 @@ function button() {
 			
 				case "Next Level": 
 				{
-					room_goto(asset_get_index("level"+string(oPersistent.prev+1)));
+					if(oPersistent.prev+1 <= global.maxlevel)
+					{
+						room_goto(asset_get_index("level"+string(oPersistent.prev+1)));
+					}
+					else
+					{
+						if(!instance_exists(warning))
+						{
+							warning = instance_create_layer(vx+1280, vy+1280, "Menu", oDisplay);
+							warning.text = "More levels coming soon!"; 
+							warning.alarm[0] = 120;
+						}		
+					}
 				}
 				break;
 			

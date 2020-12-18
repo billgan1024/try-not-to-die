@@ -1,4 +1,3 @@
-group = state.menu; 
 halign = fa_center; 
 valign = fa_middle;
 font = fnt_small;

@@ -1,6 +1,14 @@
-xx = 0; yy = 0; checkpoint = -1; c = false; cnt = 0; tot = instance_number(oCoin);
+cameraX = 0; cameraY = 0; checkpoint = -1; c = false;
+cameraSpd = 0.06;
+cnt = 0; tot = instance_number(oCoin);
 //music(mus_game);
 lx = -1; ly = -1; roomName = string_digits(room_get_name(room));
+
+//camera control
+xMax = room_width/2560; yMax = room_height/1440;
+
+//this is stored for updating purposes
+xleft = -1; ytop = -1; xright = -1; ybot = -1;
 
 //player death explosion
 max_life = 20;

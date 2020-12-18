@@ -1,1 +1,1 @@
-ry = y+40*image_yscale - 40;
+ry = y+40*image_yscale;

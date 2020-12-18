@@ -5,5 +5,5 @@ if(global.loaded)
 	if(!is_undefined(v)) { visible = false; }
 }
 
-var sp = ds_map_find_value(oPersistent.saveData, "sp" + string(room-1));
-if(sp) { image_alpha = 0.5; alpha = 0.5; }
+var special = ds_map_find_value(oPersistent.saveData, "sp" + string(room-1));
+if(special) { image_alpha = 0.5; alpha = 0.5; }

@@ -1,4 +1,4 @@
-text = ""; group = state.menu; held = false; locked = false; lvl = 0; warning = noone; 
+text = ""; held = false; locked = false; lvl = 0; warning = noone; 
 
 //special buttons
 showSfx = false; showMus = false; showFs = false; showShift = false;

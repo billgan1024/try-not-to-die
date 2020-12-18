@@ -1,1 +1,1 @@
-bounce = 50;
+bounce = 52;

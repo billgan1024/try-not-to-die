@@ -4,7 +4,7 @@
   "option_windows_version": "1.0.0.0",
   "option_windows_company_info": "Forms Game Studios",
   "option_windows_product_info": "Try Not to Die",
-  "option_windows_copyright_info": "(c) 2020 Forms Game Studios",
+  "option_windows_copyright_info": "(c) 2020 Pbl Game Studios",
   "option_windows_description_info": "A game where you try not to die",
   "option_windows_display_cursor": true,
   "option_windows_icon": "${base_options_dir}/windows/icons/icon.ico",

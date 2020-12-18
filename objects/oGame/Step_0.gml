@@ -1,43 +1,35 @@
+//cameraX, cameraY: the camera position if the standard (static) camera was used
+//xleft, xright, ytop, ybot: the clamping of the camera view
 if(instance_exists(oPlayer))
 {
-	xx = floor((oPlayer.x+40)/2560)*2560;
-	yy = floor((oPlayer.y+40)/1440)*1440;
-	/*if(oPlayer.collided)
-	{
-		alpha1 = approach(alpha1, 0.25, 0.1);
-		alpha2 = approach(alpha2, 0.5, 0.2);
-	}
-	else
-	{
-		alpha1 = approach(alpha1, 0.5, 0.1);
-		alpha2 = approach(alpha2, 1, 0.2);
-	}*/
+	cameraX = floor(oPlayer.x/2560)*2560;
+	cameraY = floor(oPlayer.y/1440)*1440;
+	//update and clamp camera
 }
-/*else
-{
-	alpha1 = approach(alpha1, 0.5, 0.1);
-	alpha2 = approach(alpha2, 1, 0.2);
-}*/
-camera_set_view_pos(view_camera[0], xx, yy);
 
-if(lx != xx || ly != yy)
+if(lx != cameraX || ly != cameraY)
 {
-	instance_deactivate_layer("Enemies");
-	instance_deactivate_layer("Ground");
-	instance_activate_region(xx, yy, 2560, 1440, true);
-	with(oBullet) instance_destroy();
-	with(oSpike) path_position = 0;
-	with(oSpikeBig) { path_position = 0; }
-	with(oHmovingPlatform) { x = xstart; y = ystart; platDir = platDirStart; }
-	with(oVmovingPlatform) { x = xstart; y = ystart; platDir = platDirStart; }
-	with(oBulletCannon) { alarm[0] = 30; }
-	with(oLaserCannon) { alarm[0] = 30; image_angle = angle; cannonState = 0; }
-	with(oUnstablePlatform)
-	{ 
-		unstable = false; image_xscale = 1; image_alpha = 1; 
-		image_index = 0; mask_index = sPlatform2; 
+	//xx, yy = grid representation of current view in room
+	
+	//update bounding rectangle if necessary (no bound = fixed view, bounded = view can move around)
+	var oldBounded = (xright-xleft) > 0 || (ybot-ytop) > 0;
+	var xx = cameraX/2560, yy = cameraY/1440;
+	xleft = xx; xright = xx; ytop = yy; ybot = yy;
+	if(global.cameraData[roomName][yy][xx])
+	{
+		while(xleft-1 >= 0 && global.cameraData[roomName][yy][xleft-1]) xleft--;
+		while(xright+1 < xMax && global.cameraData[roomName][yy][xright+1]) xright++;
+		while(ytop-1 >= 0 && global.cameraData[roomName][ytop-1][xx]) ytop--;
+		while(ybot+1 < yMax && global.cameraData[roomName][ybot+1][xx]) ybot++;
 	}
-	//with(oPlayer) { vsp = min(vsp, 0); }
+	var newBounded = (xright-xleft) > 0 || (ybot-ytop) > 0;
+	//show_debug_message(string(xleft) + sp + string(xright) + sp + string(ytop) + sp + string(ybot));
+	if((oldBounded ^ newBounded) || (!oldBounded && !newBounded)) updateActiveRegion(xleft*2560, ytop*1440, (xright-xleft+1)*2560, (ybot-ytop+1)*1440, true);
+	lx = cameraX;
+	ly = cameraY;
 }
-lx = xx;
-ly = yy;
+if(instance_exists(oPlayer))
+{
+	camera_set_view_pos(view_camera[0], smooth_approach(vx, oPlayer.x - 1280, cameraSpd), smooth_approach(vy, oPlayer.y - 720, cameraSpd));
+	camera_set_view_pos(view_camera[0], clamp(vx, xleft*2560, xright*2560), clamp(vy, ytop*1440, ybot*1440));
+}

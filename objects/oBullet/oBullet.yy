@@ -25,6 +25,7 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"oInvis","path":"objects/oInvis/oInvis.yy",},"parent":{"name":"oBullet","path":"objects/oBullet/oBullet.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"oCheckpoint","path":"objects/oCheckpoint/oCheckpoint.yy",},"parent":{"name":"oBullet","path":"objects/oBullet/oBullet.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
