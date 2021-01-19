@@ -6,4 +6,4 @@ An obstacle course platformer
 Collect coins, dodge spikes, and reach the goal in a challenging obstacle course platformer!
 
 ## Download
-Head over to github.com/pblpbl1024/try-not-to-die/releases and download "game.zip"; extract it and run "game.exe". Enjoy!
+Head over to ![releases](github.com/pblpbl1024/try-not-to-die/releases) and download "game.zip"; extract it and run "game.exe". Enjoy!
