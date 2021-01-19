@@ -9,6 +9,7 @@ function jumpThroughCollisions(argument0) {
 				{
 					other.y++;	
 				}
+				if(other.vsp >= 38) other.yscale = other.landScale;
 				other.vsp = 0; other.vsp_frac = 0;
 			}
 		}

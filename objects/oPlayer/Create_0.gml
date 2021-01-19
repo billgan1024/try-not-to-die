@@ -5,13 +5,15 @@ runDecel = 0.8;
 jumpSpeed = 26;
 bonusJump = 0;
 
+followX = xstart; followY = ystart;
+
 hsp = 0;
 vsp = 0;
 hsp_frac = 0; 
 vsp_frac = 0; 
 
 grav = 1.2; 
-maxGrav = 35; 
+maxGrav = 40; 
 canMove = false; 
 alarm[1] = 10;
 immune = false; 
@@ -27,6 +29,8 @@ key_up = false;
 key_shift = global.isShifting;
 
 yscale = 1;
+jumpScale = 0.6;
+landScale = 0.8;
 
 if(global.loaded)
 {

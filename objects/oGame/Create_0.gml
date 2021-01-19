@@ -1,5 +1,6 @@
 cameraX = 0; cameraY = 0; checkpoint = -1; c = false;
-cameraSpd = 0.06;
+cameraSpd = 0.04;
+targetX = 0; targetY = 0;
 cnt = 0; tot = instance_number(oCoin);
 //music(mus_game);
 lx = -1; ly = -1; roomName = string_digits(room_get_name(room));

@@ -1,7 +1,7 @@
 if(!immune)
 {
 	sound(snd_bells); other.image_speed = 1; immune = true; 
-	oGame.alarm[2] = 45; oPersistent.prev = real(string_digits(room_get_name(room)));
+	oGame.alarm[1] = 45; oPersistent.prev = real(string_digits(room_get_name(room)));
 	while(!ds_stack_empty(oPersistent.collectedCoins)) 
 	{
 		var c = ds_stack_pop(oPersistent.collectedCoins);

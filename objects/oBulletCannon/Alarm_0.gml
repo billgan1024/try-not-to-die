@@ -1,4 +1,7 @@
-sound(snd_shoot);
+if(isInView()) 
+{
+	audio_stop_sound(snd_shoot); sound(snd_shoot);
+}
 image_index = 1;
 var b = instance_create_layer(x, y, "Ground", oBullet);
 b.speed = bspd;

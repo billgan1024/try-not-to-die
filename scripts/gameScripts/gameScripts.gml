@@ -7,10 +7,11 @@ function updateActiveRegion(cx, cy, w, h, reset)
 	if(reset)
 	{
 		with(oBullet) instance_destroy();
-		with(oSpike) path_position = 0;
-		with(oSpikeBig) { path_position = 0; }
+		with(oSpike) { path_position = 0; image_angle = 0; }
+		with(oSpikeBig) { path_position = 0; image_angle = 0;  }
 		with(oHmovingPlatform) { x = xstart; y = ystart; platDir = platDirStart; }
 		with(oVmovingPlatform) { x = xstart; y = ystart; platDir = platDirStart; }
+		with(oSpring) { image_index = 0; alarm[0] = -1; }
 		//initial delay is constant
 		with(oBulletCannon) { alarm[0] = 30; alarm[1] = -1; image_index = 0; }
 		with(oLaserCannon) { alarm[0] = 30; image_index = 0; image_angle = angle; cannonState = 0; }
@@ -20,4 +21,9 @@ function updateActiveRegion(cx, cy, w, h, reset)
 			image_index = 0; mask_index = sPlatform2; 
 		}
 	}
+}
+
+function isInView()
+{
+	return bbox_right > vx && bbox_left < vx+2560 && bbox_bottom > vy && bbox_top < vy+1440;
 }

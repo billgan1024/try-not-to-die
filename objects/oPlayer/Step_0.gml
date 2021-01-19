@@ -1,3 +1,4 @@
+followX = x; followY = y;
 image_alpha = approach(image_alpha, 1, 0.1);
 yscale = approach(yscale, 1, 0.05);
 if(canMove) input();
@@ -31,7 +32,7 @@ else
 
 if(!onGround)
 {
-	if(key_down && vsp >= -jumpSpeed) { vsp = min(vsp+2*grav, maxGrav+3); }
+	if(key_down && vsp >= -jumpSpeed) { vsp = min(vsp+2*grav, maxGrav+10); }
 	else vsp = min(vsp+grav, maxGrav); 
 }
 
@@ -42,7 +43,7 @@ if(jumpBuffer > 0)
 	jumpBuffer--;
 	if(key_jump && vsp > -jumpSpeed)
 	{
-		yscale = 0.6;
+		//if(!collision_line(x, y, x, y-160, oGround, false, false)) yscale = jumpScale;
 		sound(snd_jump);
 		boosted = false;
 		jumpBuffer = 0;
@@ -54,7 +55,7 @@ else if(extraJump)
 {
 	if(key_jump && vsp >= -jumpSpeed)
 	{
-		yscale = 0.6;
+		//if(!collision_line(x, y, x, y-160, oGround, false, false)) yscale = jumpScale;
 		sound(snd_jump);
 		boosted = false;
 		if(!place_meeting(x, y+10, oGround)) extraJump = false;
@@ -113,6 +114,8 @@ if(place_meeting(x, y+vsp, oGround))
 {
 	var p = sign(vsp);
 	while(!place_meeting(x, y+p, oGround)) y += p;
+	//animation if you collide with the ground at a high velocity
+	if(vsp >= 38) yscale = landScale;
 	vsp = 0; vsp_frac = 0;
 }
 
@@ -124,7 +127,7 @@ if(onGround) { extraJump = true; bonusJump = 0; boosted = false; jumpBuffer = 5;
 var g = instance_place(x, y+1, oGround);
 if(g != noone && g.object_index == oSpring)
 {
-	yscale = 0.6;
+	//yscale = jumpScale;
 	sound(snd_bounce); vsp = -g.bounce; boosted = true;
 	g.image_index = 1; g.alarm[0] = 15;
 }
